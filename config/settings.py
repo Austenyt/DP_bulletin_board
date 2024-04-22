@@ -136,7 +136,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/users/'
@@ -183,3 +183,4 @@ CSRF_TRUSTED_ORIGINS = [
     ]
 
 CORS_ALLOW_ALL_ORIGINS = False
+
