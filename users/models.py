@@ -8,9 +8,17 @@ class User(AbstractUser):
         Пользовательская модель пользователя, расширяющая AbstractUser.
     """
     username = None
-    email = models.EmailField(unique=True, verbose_name='почта')
-
-    is_not_blocked = models.BooleanField(default=True, verbose_name='неблокирован')
+    first_name = models.CharField(max_length=50, verbose_name='Имя', blank=True, null=True)
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия', blank=True, null=True)
+    phone = models.CharField(max_length=35, verbose_name='Номер телефона', blank=True, null=True)
+    email = models.EmailField(unique=True, verbose_name='Почта')
+    role_choices = [
+        ('user', 'User'),
+        ('admin', 'Admin'),
+    ]
+    role = models.CharField(max_length=10, choices=role_choices)
+    image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
+    is_not_blocked = models.BooleanField(default=True, verbose_name='Неблокирован')
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
